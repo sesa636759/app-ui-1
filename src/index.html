@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Component Library Demo</title>
+
+  <!-- External Dependencies -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="/build/assets/styles/aside-panel-theme.css">
+  <link rel="stylesheet" href="/build/assets/styles/nav-sidebar-theme.css">
+
+  <!-- Demo Styles -->
+  <link rel="stylesheet" href="/build/assets/styles/demo.css">
+  <link rel="stylesheet" href="/build/assets/styles/index-demo.css">
+
+  <!-- Component Scripts -->
+  <script type="module" src="/build/exploration-project-tailwind.esm.js"></script>
+  <script nomodule src="/build/exploration-project-tailwind.js"></script>
+  <script type="module" src="/build/assets/js/index-boot.js"></script>
+  <script type="module" src="/build/assets/js/nav-bar-demo.js"></script>
+  <script type="module" src="/build/assets/js/demos/dock-host-demo.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      min-height: 100vh;
+      overflow: auto;
+    } */
+
+    .demo-container {
+      background: white;
+      border-radius: 20px;
+      padding: 60px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 600px;
+    }
+
+    /* Legacy context menu CSS removed - see src/assets/styles/context-menu-legacy.css */
+    .demo-section#dock-host {
+      overflow: visible !important;
+      position: static !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Universal Highly Configurable Navigation -->
+    <ui-navigation
+      orientation="vertical"
+      theme="dark"
+      width="260px"
+      collapsed-width="60px"
+      animation-duration="400"
+      easing="cubic-bezier(0.4,0,0.2,1)"
+      style="z-index: 2000;"
+      id="mainNav"
+    >
+      <div slot="header" style="display:flex;align-items:center;gap:8px;padding:16px 8px 8px 8px;">
+        <img src="/build/assets/logo.svg" alt="Logo" style="height:32px;" />
+        <span style="font-weight:600;font-size:18px;">MyApp</span>
+      </div>
+      <div slot="secondary" style="padding:8px 16px;"><input type="search" placeholder="Search..." style="width:100%;padding:6px;border-radius:6px;border:1px solid #ccc;" /></div>
+      <div slot="footer" style="padding:8px 16px;"><button style="width:100%;padding:8px;border-radius:6px;background:#ef4444;color:#fff;border:none;">Logout</button></div>
+    </ui-navigation>
+
+    <!-- Component List Panel - Middle -->
+    <div class="component-list-panel">
+      <nav class="component-nav" id="componentNav">
+        <div class="nav-header">
+          <h3>📚 Components</h3>
+          <small class="nav-hint">← → keys to navigate</small>
+        </div>
+
+        <!-- Home Button -->
+        <div class="home-btn-wrapper">
+          <button onclick="showSection('home')" class="nav-btn nav-btn-home active" data-section="home">🏠 Home</button>
+        </div>
+
+        <!-- Component Navigation Buttons -->
+        <div class="nav-buttons">
+          <button onclick="showSection('accordion')" class="nav-btn" data-section="accordion">📑 Accordion</button>
+          <button onclick="showSection('adivider')" class="nav-btn" data-section="adivider">➖ Divider</button>
+          <button onclick="showSection('advanced-data-table')" class="nav-btn" data-section="advanced-data-table">📊 Advanced Table</button>
+          <button onclick="showSection('anchor')" class="nav-btn" data-section="anchor">⚓ Anchor</button>
+          <button onclick="showSection('aside-panel')" class="nav-btn" data-section="aside-panel">📱 Aside Panel</button>
+          <button onclick="showSection('avatar')" class="nav-btn" data-section="avatar">👤 Avatar</button>
+          <button onclick="showSection('avatar-group')" class="nav-btn" data-section="avatar-group">👥 Avatar Group</button>
+          <button onclick="showSection('badge')" class="nav-btn" data-section="badge">🔔 Badge</button>
+          <button onclick="showSection('bar-chart')" class="nav-btn" data-section="bar-chart">📊 Bar Chart</button>
+          <button onclick="showSection('breadcrumb')" class="nav-btn" data-section="breadcrumb">🍞 Breadcrumb</button>
+          <button onclick="showSection('button')" class="nav-btn" data-section="button">🔘 Button</button>
+          <button onclick="showSection('card')" class="nav-btn" data-section="card">🃏 Card</button>
+          <!-- <button onclick="showSection('cascade-select')" class="nav-btn" data-section="cascade-select">🔽 Cascade Select</button> -->
+          <button onclick="showSection('chart')" class="nav-btn" data-section="chart">📈 Chart</button>
+          <button onclick="showSection('chip')" class="nav-btn" data-section="chip">🏷️ Chip</button>
+          <button onclick="showSection('context-menu')" class="nav-btn" data-section="context-menu">📋 Context Menu</button>
+          <button onclick="showSection('dialog')" class="nav-btn" data-section="dialog">💬 Dialog</button>
+          <button onclick="showSection('dock')" class="nav-btn" data-section="dock">🚢 Dock</button>
+          <button onclick="showSection('dropdown')" class="nav-btn" data-section="dropdown">📋 Dropdown</button>
+          <button onclick="showSection('horizontal-nav')" class="nav-btn" data-section="horizontal-nav">↔️ Horizontal Nav</button>
+          <button onclick="showSection('knob')" class="nav-btn" data-section="knob">🎛️ Knob</button>
+          <button onclick="showSection('meter-group')" class="nav-btn" data-section="meter-group">📊 Meter</button>
+          <button onclick="showSection('nav-bar')" class="nav-btn" data-section="nav-bar">🧭 Nav Bar</button>
+          <button onclick="showSection('otp-input')" class="nav-btn" data-section="otp-input">🔢 OTP Input</button>
+          <button onclick="showSection('pagination')" class="nav-btn" data-section="pagination">📄 Pagination</button>
+          <button onclick="showSection('pattern-input')" class="nav-btn" data-section="pattern-input">🎯 Pattern Input</button>
+          <button onclick="showSection('panel')" class="nav-btn" data-section="panel">📋 Panel</button>
+          <button onclick="showSection('picklist')" class="nav-btn" data-section="picklist">📋 Picklist</button>
+          <button onclick="showSection('popover')" class="nav-btn" data-section="popover">💭 Popover</button>
+          <button onclick="showSection('range-slider')" class="nav-btn" data-section="range-slider">🎚️ Range Slider</button>
+          <button onclick="showSection('rating')" class="nav-btn" data-section="rating">⭐ Rating</button>
+          <button onclick="showSection('scroll-top')" class="nav-btn" data-section="scroll-top">⬆️ Scroll Top</button>
+          <button onclick="showSection('skeleton')" class="nav-btn" data-section="skeleton">💀 Skeleton</button>
+          <button onclick="showSection('smart-menu')" class="nav-btn" data-section="smart-menu">🧠 Smart Menu</button>
+          <button onclick="showSection('smart-stepper')" class="nav-btn" data-section="smart-stepper">🧠 Smart Stepper</button>
+          <button onclick="showSection('snackbar')" class="nav-btn" data-section="snackbar">🍞 Snackbar</button>
+          <button onclick="showSection('speed-dial')" class="nav-btn" data-section="speed-dial">⚡ Speed Dial</button>
+          <button onclick="showSection('speedometer')" class="nav-btn" data-section="speedometer">🎯 Speedometer</button>
+          <button onclick="showSection('dock-host')" class="nav-btn" data-section="dock-host">🗂️ Dock Host</button>
+          
+
+          <button onclick="showSection('switch')" class="nav-btn" data-section="switch">🔘 Switch</button>
+          <button onclick="showSection('tabs')" class="nav-btn" data-section="tabs">📑 Tabs</button>
+          <button onclick="showSection('tag')" class="nav-btn" data-section="tag">🏷 Tag</button>
+          <button onclick="showSection('theme-selector')" class="nav-btn" data-section="theme-selector">🎨 Theme Selector</button>
+          <button onclick="showSection('timeline')" class="nav-btn" data-section="timeline">⏱️ Timeline</button>
+          <button onclick="showSection('top-bar')" class="nav-btn" data-section="top-bar">📌 Top Bar</button>
+          <button onclick="showSection('transfer-list')" class="nav-btn" data-section="transfer-list">⇄ Transfer List</button>
+          <button onclick="showSection('tree-list')" class="nav-btn" data-section="tree-list">🌳 Tree List</button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Demo Display Area - Right -->
+    <main class="main-content">
+      <h1>Component Library Demo</h1>
+
+      <!-- Home Section -->
+      <section id="home" class="demo-section section-active">
+        <h2>🏠 Welcome to Component Library</h2>
+        <p>Explore our collection of reusable UI components. Click on any component to view its full demo and documentation.</p>
+        <!-- Home content will be generated by JavaScript -->
+      </section>
+
+      <!-- Demo Section Containers (Loaded Dynamically) -->
+      <div id="context-menu" class="demo-section"></div>
+      <div id="smart-menu" class="demo-section"></div>
+      <div id="stepper" class="demo-section"></div>
+      <div id="smart-stepper" class="demo-section"></div>
+      <div id="dock-host" class="demo-section"></div>
+
+      <!-- Empty Demo Section Containers -->
+      <div id="accordion" class="demo-section"></div>
+      <div id="adivider" class="demo-section"></div>
+      <div id="tabs" class="demo-section"></div>
+      <div id="nav-bar" class="demo-section"></div>
+      <div id="aside-panel" class="demo-section"></div>
+      <div id="dialog" class="demo-section"></div>
+      <div id="snackbar" class="demo-section"></div>
+      <div id="picklist" class="demo-section"></div>
+      <div id="card" class="demo-section"></div>
+      <div id="panel" class="demo-section"></div>
+      <div id="avatar" class="demo-section"></div>
+      <div id="avatar-group" class="demo-section"></div>
+      <div id="chip" class="demo-section"></div>
+      <div id="badge" class="demo-section"></div>
+      <div id="bar-chart" class="demo-section"></div>
+      <div id="tag" class="demo-section"></div>
+      <div id="meter-group" class="demo-section"></div>
+      <div id="scroll-top" class="demo-section"></div>
+      <div id="rating" class="demo-section"></div>
+      <div id="speed-dial" class="demo-section"></div>
+      <div id="otp-input" class="demo-section"></div>
+      <div id="speedometer" class="demo-section"></div>
+      <div id="advanced-data-table" class="demo-section"></div>
+      <div id="cascade-select" class="demo-section"></div>
+      <div id="range-slider" class="demo-section"></div>
+      <div id="transfer-list" class="demo-section"></div>
+      <div id="tree-list" class="demo-section"></div>
+      <div id="pagination" class="demo-section"></div>
+      <div id="pattern-input" class="demo-section"></div>
+      <div id="skeleton" class="demo-section"></div>
+      <div id="top-bar" class="demo-section"></div>
+      <div id="dock" class="demo-section"></div>
+      <div id="dropdown" class="demo-section"></div>
+      <div id="popover" class="demo-section"></div>
+      <div id="anchor" class="demo-section"></div>
+      <div id="theme-selector" class="demo-section"></div>
+      <div id="breadcrumb" class="demo-section"></div>
+      <div id="button" class="demo-section"></div>
+      <div id="horizontal-nav" class="demo-section"></div>
+      <div id="chart" class="demo-section"></div>
+      <div id="knob" class="demo-section"></div>
+      <div id="switch" class="demo-section"></div>
+    </main>
+  </div>
+
+  <!-- Demo Navigation Script (ES Module) - Loaded and executed immediately -->
+  <script type="module">
+    import { showSection, setTheme } from '/build/assets/js/demo-nav.js';
+    import { preloadCriticalDemos } from '/build/assets/js/demo-loader.js';
+    
+
+    
+    // Demo navigation data for ui-navigation
+    window.demoNavigationItems = [
+      {
+        id: 'home', label: 'Home', icon: '🏠', href: '#home',
+      },
+      {
+        id: 'components', label: 'Components', icon: '🧩', children: [
+          { id: 'accordion', label: 'Accordion', icon: '📑', href: '#accordion' },
+          { id: 'adivider', label: 'Divider', icon: '➖', href: '#adivider' },
+          { id: 'advanced-data-table', label: 'Advanced Table', icon: '📊', href: '#advanced-data-table' },
+          { id: 'avatar', label: 'Avatar', icon: '👤', href: '#avatar' },
+          { id: 'avatar-group', label: 'Avatar Group', icon: '👥', href: '#avatar-group' },
+          { id: 'badge', label: 'Badge', icon: '🔔', href: '#badge' },
+          { id: 'bar-chart', label: 'Bar Chart', icon: '📊', href: '#bar-chart' },
+          { id: 'breadcrumb', label: 'Breadcrumb', icon: '🍞', href: '#breadcrumb' },
+          { id: 'button', label: 'Button', icon: '🔘', href: '#button' },
+          { id: 'card', label: 'Card', icon: '🃏', href: '#card' },
+          { id: 'chip', label: 'Chip', icon: '🏷️', href: '#chip' },
+          { id: 'context-menu', label: 'Context Menu', icon: '📋', href: '#context-menu' },
+          { id: 'dialog', label: 'Dialog', icon: '💬', href: '#dialog' },
+          { id: 'dock', label: 'Dock', icon: '🚢', href: '#dock' },
+          { id: 'dropdown', label: 'Dropdown', icon: '📋', href: '#dropdown' },
+          { id: 'horizontal-nav', label: 'Horizontal Nav', icon: '↔️', href: '#horizontal-nav' },
+          { id: 'knob', label: 'Knob', icon: '🎛️', href: '#knob' },
+          { id: 'meter-group', label: 'Meter', icon: '📊', href: '#meter-group' },
+          { id: 'nav-bar', label: 'Nav Bar', icon: '🧭', href: '#nav-bar' },
+          { id: 'otp-input', label: 'OTP Input', icon: '🔢', href: '#otp-input' },
+          { id: 'pagination', label: 'Pagination', icon: '📄', href: '#pagination' },
+          { id: 'panel', label: 'Panel', icon: '📋', href: '#panel' },
+          { id: 'picklist', label: 'Picklist', icon: '📋', href: '#picklist' },
+          { id: 'popover', label: 'Popover', icon: '💭', href: '#popover' },
+          { id: 'range-slider', label: 'Range Slider', icon: '🎚️', href: '#range-slider' },
+          { id: 'rating', label: 'Rating', icon: '⭐', href: '#rating' },
+          { id: 'scroll-top', label: 'Scroll Top', icon: '⬆️', href: '#scroll-top' },
+          { id: 'skeleton', label: 'Skeleton', icon: '💀', href: '#skeleton' },
+          { id: 'smart-menu', label: 'Smart Menu', icon: '🧠', href: '#smart-menu' },
+          { id: 'smart-stepper', label: 'Smart Stepper', icon: '🧠', href: '#smart-stepper' },
+          { id: 'snackbar', label: 'Snackbar', icon: '🍞', href: '#snackbar' },
+          { id: 'speed-dial', label: 'Speed Dial', icon: '⚡', href: '#speed-dial' },
+          { id: 'speedometer', label: 'Speedometer', icon: '🎯', href: '#speedometer' },
+          { id: 'switch', label: 'Switch', icon: '🔘', href: '#switch' },
+          { id: 'tabs', label: 'Tabs', icon: '📑', href: '#tabs' },
+          { id: 'tag', label: 'Tag', icon: '🏷', href: '#tag' },
+          { id: 'timeline', label: 'Timeline', icon: '⏱️', href: '#timeline' },
+          { id: 'top-bar', label: 'Top Bar', icon: '📌', href: '#top-bar' },
+          { id: 'transfer-list', label: 'Transfer List', icon: '⇄', href: '#transfer-list' },
+          { id: 'tree-list', label: 'Tree List', icon: '🌳', href: '#tree-list' },
+        ]
+      },
+      {
+        id: 'settings', label: 'Settings', icon: '⚙️', children: [
+          { id: 'theme-selector', label: 'Theme Selector', icon: '🎨', href: '#theme-selector' },
+        ]
+      },
+      {
+        id: 'about', label: 'About', icon: 'ℹ️', href: '#about', badge: 'New'
+      }
+    ];
+    window.showSection = showSection;
+    window.setTheme = setTheme;
+    console.log('✅ showSection and setTheme now globally available');
+    document.addEventListener('DOMContentLoaded', () => {
+      preloadCriticalDemos();
+      // Inject navigation items into ui-navigation
+      const nav = document.getElementById('mainNav');
+      if (nav && nav.tagName === 'UI-NAVIGATION') {
+        nav.items = window.demoNavigationItems;
+      }
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    });
+  </script>
+
+</body>
+</html>

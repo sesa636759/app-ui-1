@@ -1,0 +1,83 @@
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  overflow: visible;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-circle {
+  border-radius: 50%;
+}
+
+/* For circular avatars, clip the content but allow badge to overflow */
+.avatar-circle .avatar-image,
+.avatar-circle .avatar-content,
+.avatar-circle .avatar-icon {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Remove background for circular avatars (especially in groups) */
+.avatar-circle {
+  background: transparent;
+}
+
+/* Only show gradient for circular avatars with text/icon content */
+.avatar-circle:not(.avatar-has-image) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.avatar-square {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+.avatar-icon,
+.avatar-content {
+  font-size: 1.2em;
+}
+
+.avatar-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: var(--avatar-badge-color, #ef4444);
+  color: white;
+  border-radius: 50%;
+  min-width: 20px;
+  height: 20px;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+}
+
+/* Dot notification badge (no text) positioned close to the edge */
+.avatar-badge-dot {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  padding: 0;
+  top: 2px;
+  right: 2px;
+  border-width: 2px;
+}

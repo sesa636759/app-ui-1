@@ -1,0 +1,417 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 24px; /* More capsule-like rounded rectangle */
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+/* Sizes */
+.chip-sm {
+  padding: 4px 10px;
+  font-size: 12px;
+  height: 24px;
+}
+
+.chip-md {
+  padding: 6px 12px;
+  font-size: 14px;
+  height: 32px;
+}
+
+.chip-lg {
+  padding: 8px 16px;
+  font-size: 16px;
+  height: 40px;
+}
+
+/* Variants - Primary */
+.chip-filled.chip-primary {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+}
+
+.chip-outlined.chip-primary {
+  background-color: transparent;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.chip-text.chip-primary {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+/* Variants - Secondary */
+.chip-filled.chip-secondary {
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+}
+
+.chip-outlined.chip-secondary {
+  background-color: transparent;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.chip-text.chip-secondary {
+  background-color: transparent;
+  color: var(--secondary-color);
+}
+
+/* Variants - Success */
+.chip-filled.chip-success {
+  background-color: #10b981;
+  color: white;
+}
+
+.chip-outlined.chip-success {
+  background-color: transparent;
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.chip-text.chip-success {
+  background-color: transparent;
+  color: #10b981;
+}
+
+/* Variants - Danger */
+.chip-filled.chip-danger {
+  background-color: #ef4444;
+  color: white;
+}
+
+.chip-outlined.chip-danger {
+  background-color: transparent;
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.chip-text.chip-danger {
+  background-color: transparent;
+  color: #ef4444;
+}
+
+/* Variants - Warning */
+.chip-filled.chip-warning {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.chip-outlined.chip-warning {
+  background-color: transparent;
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+
+.chip-text.chip-warning {
+  background-color: transparent;
+  color: #f59e0b;
+}
+
+/* Variants - Info */
+.chip-filled.chip-info {
+  background-color: #06b6d4;
+  color: white;
+}
+
+.chip-outlined.chip-info {
+  background-color: transparent;
+  border-color: #06b6d4;
+  color: #06b6d4;
+}
+
+.chip-text.chip-info {
+  background-color: transparent;
+  color: #06b6d4;
+}
+
+/* Clickable */
+.chip-clickable {
+  cursor: pointer;
+}
+
+.chip-clickable:hover:not(.chip-disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled */
+.chip-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Closing Animation */
+.chip-closing {
+  animation: chipClose 0.3s ease forwards;
+}
+
+@keyframes chipClose {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    max-width: 300px;
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+    max-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* Elements */
+.chip-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: -6px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.chip-sm .chip-avatar {
+  width: 18px;
+  height: 18px;
+  margin-left: -4px;
+}
+
+.chip-lg .chip-avatar {
+  width: 28px;
+  height: 28px;
+  margin-left: -8px;
+}
+
+.chip-image {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-left: -4px;
+}
+
+.chip-sm .chip-image {
+  width: 16px;
+  height: 16px;
+}
+
+.chip-lg .chip-image {
+  width: 24px;
+  height: 24px;
+}
+
+.chip-icon {
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+}
+
+.chip-label {
+  line-height: 1;
+}
+
+.chip-remove {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 -4px 0 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.chip-remove:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.chip-remove:disabled {
+  cursor: not-allowed;
+}
+
+/* Opening Animations */
+.chip-opening-fade {
+  animation: chipOpenFade var(--animation-duration, 300ms) ease forwards;
+}
+
+.chip-opening-scale {
+  animation: chipOpenScale var(--animation-duration, 300ms) ease forwards;
+}
+
+.chip-opening-slide {
+  animation: chipOpenSlide var(--animation-duration, 300ms) ease forwards;
+}
+
+.chip-opening-bounce {
+  animation: chipOpenBounce var(--animation-duration, 300ms) cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Closing Animations */
+.chip-closing-fade {
+  animation: chipCloseFade var(--animation-duration, 300ms) ease forwards;
+}
+
+.chip-closing-scale {
+  animation: chipCloseScale var(--animation-duration, 300ms) ease forwards;
+}
+
+.chip-closing-slide {
+  animation: chipCloseSlide var(--animation-duration, 300ms) ease forwards;
+}
+
+.chip-closing-bounce {
+  animation: chipCloseBounce var(--animation-duration, 300ms) ease forwards;
+}
+
+/* Opening Keyframes */
+@keyframes chipOpenFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes chipOpenScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes chipOpenSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes chipOpenBounce {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Closing Keyframes */
+@keyframes chipCloseFade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes chipCloseScale {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+    max-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@keyframes chipCloseSlide {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+    max-width: 300px;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(30px);
+    max-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@keyframes chipCloseBounce {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+    max-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/* Badge Styles */
+.chip-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--badge-text-color, white);
+  background-color: var(--badge-background-color, #3b82f6);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  margin-left: 8px;
+}
+
+/* Counter Styles */
+.chip-counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--counter-text-color, #374151);
+  background-color: var(--counter-background-color, #e5e7eb);
+  border-radius: 12px;
+  padding: 0 6px;
+  margin-left: 8px;
+}

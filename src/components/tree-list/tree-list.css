@@ -1,0 +1,438 @@
+:host {
+  display: block;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container */
+.tree-list {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tree-list-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Node Wrapper */
+.tree-node-wrapper {
+  position: relative;
+}
+
+/* Node */
+.tree-node {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border-bottom: 1px solid #f3f4f6;
+  position: relative;
+  user-select: none;
+}
+
+.tree-node:hover:not(.tree-node-disabled) {
+  background-color: #f9fafb;
+}
+
+.tree-node-selected {
+  background-color: #eff6ff;
+  border-left: 3px solid #3b82f6;
+  padding-left: 9px;
+}
+
+.tree-node-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Size variants */
+.tree-list-sm .tree-node {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.tree-list-lg .tree-node {
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+/* Expand/Collapse */
+.tree-node-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.tree-expand-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0;
+  color: #6b7280;
+  font-size: 10px;
+  transition: all 0.2s ease;
+}
+
+.tree-expand-btn:hover:not(:disabled) {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.tree-expand-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.expand-icon-closed,
+.expand-icon-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.tree-expand-placeholder {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Checkbox */
+.tree-node-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.tree-node-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.tree-node-checkbox input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Node Icon */
+.tree-node-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.tree-list-sm .tree-node-icon {
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+}
+
+.tree-list-lg .tree-node-icon {
+  font-size: 20px;
+  width: 28px;
+  height: 28px;
+}
+
+/* Node Label */
+.tree-node-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+.tree-node-disabled .tree-node-label {
+  color: #9ca3af;
+}
+
+/* Right Side */
+.tree-node-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Lock Icon */
+.tree-node-lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #f59e0b;
+  opacity: 0.9;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.tree-node-lock:hover {
+  opacity: 1;
+}
+
+.tree-node-lock .lock-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tree-list-sm .tree-node-lock {
+  width: 18px;
+  height: 18px;
+}
+
+.tree-list-sm .tree-node-lock .lock-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.tree-list-lg .tree-node-lock {
+  width: 22px;
+  height: 22px;
+}
+
+.tree-list-lg .tree-node-lock .lock-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Avatar */
+.tree-node-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Avatar Group */
+.tree-node-avatar-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Actions Menu */
+.tree-node-actions {
+  position: relative;
+}
+
+.tree-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0;
+  color: #6b7280;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.tree-action-btn:hover:not(:disabled) {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.tree-action-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.tree-list-sm .tree-action-btn {
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+}
+
+.tree-list-lg .tree-action-btn {
+  width: 32px;
+  height: 32px;
+  font-size: 22px;
+}
+
+/* Action Menu Dropdown */
+.tree-action-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 10000;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  padding: 4px;
+  animation: menuSlideDown 0.2s ease;
+}
+
+@keyframes menuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tree-action-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #374151;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.tree-action-item:hover {
+  background-color: #f3f4f6;
+}
+
+.tree-list-sm .tree-action-item {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.tree-list-lg .tree-action-item {
+  padding: 10px 14px;
+  font-size: 15px;
+}
+
+/* Children */
+.tree-node-children {
+  position: relative;
+}
+
+/* Tree Lines */
+.tree-list-lines .tree-node-wrapper {
+  position: relative;
+}
+
+/* Vertical line connecting siblings */
+.tree-list-lines .tree-node-children > .tree-node-wrapper:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 32px;
+  bottom: 0;
+  width: 2px;
+  background-color: #d1d5db;
+}
+
+/* L-shaped connector for each child node */
+.tree-list-lines .tree-node-children > .tree-node-wrapper::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 16px;
+  width: 16px;
+  height: 2px;
+  background-color: #d1d5db;
+}
+
+/* Last child gets rounded corner */
+.tree-list-lines .tree-node-children > .tree-node-wrapper:last-child::after {
+  border-left: 2px solid #d1d5db;
+  border-bottom: 2px solid #d1d5db;
+  border-bottom-left-radius: 8px;
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  top: 0;
+}
+
+/* Nested levels - adjust left position */
+.tree-list-lines .tree-node-children .tree-node-children > .tree-node-wrapper::before,
+.tree-list-lines .tree-node-children .tree-node-children > .tree-node-wrapper::after {
+  left: calc(10px + 24px);
+}
+
+.tree-list-lines .tree-node-children .tree-node-children .tree-node-children > .tree-node-wrapper::before,
+.tree-list-lines .tree-node-children .tree-node-children .tree-node-children > .tree-node-wrapper::after {
+  left: calc(10px + 48px);
+}
+
+.tree-list-lines .tree-node-children .tree-node-children .tree-node-children .tree-node-children > .tree-node-wrapper::before,
+.tree-list-lines .tree-node-children .tree-node-children .tree-node-children .tree-node-children > .tree-node-wrapper::after {
+  left: calc(10px + 72px);
+}
+
+/* Empty State */
+.tree-empty {
+  padding: 40px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .tree-node {
+    padding: 10px 8px;
+  }
+
+  .tree-node-right {
+    gap: 4px;
+  }
+
+  .tree-node-avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .tree-action-menu {
+    right: 0;
+    min-width: 140px;
+  }
+}
+
+/* Accessibility */
+.tree-node:focus-within {
+  outline: 2px solid #3b82f6;
+  outline-offset: -2px;
+}
+
+.tree-expand-btn:focus,
+.tree-action-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

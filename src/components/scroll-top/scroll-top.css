@@ -1,0 +1,166 @@
+:host {
+  display: contents;
+}
+
+.scroll-top {
+  position: fixed;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  z-index: 1000;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* When used inside a scrollable container with target */
+.scroll-top-container {
+  position: absolute;
+}
+
+.scroll-top-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.scroll-top:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-top:active {
+  transform: scale(0.95);
+}
+
+/* Sizes */
+.scroll-top-sm {
+  width: 40px;
+  height: 40px;
+}
+
+.scroll-top-md {
+  width: 50px;
+  height: 50px;
+}
+
+.scroll-top-lg {
+  width: 60px;
+  height: 60px;
+}
+
+/* Positions - for fixed positioning (window scroll) */
+.scroll-top-bottom-right {
+  right: 20px;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
+.scroll-top-bottom-left {
+  left: 20px;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
+.scroll-top-bottom-center {
+  left: 50%;
+  bottom: 0;
+  margin-bottom: 20px;
+  transform: translateX(-50%) scale(0.8);
+}
+
+.scroll-top-container.scroll-top-bottom-center {
+  transform: translateX(-50%) scale(0.8);
+}
+
+.scroll-top-bottom-center.scroll-top-visible {
+  transform: translateX(-50%) scale(1);
+}
+
+.scroll-top-bottom-center:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* Adjust for medium size */
+.scroll-top-md.scroll-top-bottom-right,
+.scroll-top-md.scroll-top-bottom-left {
+  margin-bottom: 30px;
+}
+
+.scroll-top-md.scroll-top-bottom-center {
+  margin-bottom: 30px;
+}
+
+/* Adjust for large size */
+.scroll-top-lg.scroll-top-bottom-right,
+.scroll-top-lg.scroll-top-bottom-left {
+  margin-bottom: 40px;
+}
+
+.scroll-top-lg.scroll-top-bottom-center {
+  margin-bottom: 40px;
+}
+
+/* Colors */
+.scroll-top-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.scroll-top-primary:hover {
+  background-color: #2563eb;
+}
+
+.scroll-top-secondary {
+  background-color: #6b7280;
+  color: white;
+}
+
+.scroll-top-secondary:hover {
+  background-color: #4b5563;
+}
+
+.scroll-top-dark {
+  background-color: #1f2937;
+  color: white;
+}
+
+.scroll-top-dark:hover {
+  background-color: #111827;
+}
+
+/* Icon */
+.scroll-top-icon {
+  font-size: 1.5em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-top-sm .scroll-top-icon {
+  font-size: 1.3em;
+}
+
+.scroll-top-lg .scroll-top-icon {
+  font-size: 1.8em;
+}
+
+/* Ensure icon is always visible */
+.scroll-top span {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

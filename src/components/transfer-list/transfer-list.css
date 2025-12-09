@@ -1,0 +1,396 @@
+:host {
+  display: block;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container */
+.transfer-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.transfer-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* List */
+.transfer-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* Header */
+.transfer-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.transfer-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.transfer-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.transfer-title-text {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.transfer-count {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  background-color: #e5e7eb;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Search */
+.transfer-search {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transfer-search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.transfer-search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.transfer-search-input:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* Body */
+.transfer-body {
+  overflow-y: auto;
+  background-color: white;
+}
+
+.transfer-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.transfer-body::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.transfer-body::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.transfer-body::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Items */
+.transfer-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transfer-item {
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.transfer-item:last-child {
+  border-bottom: none;
+}
+
+.transfer-item:hover:not(.transfer-item-disabled) {
+  background-color: #f9fafb;
+}
+
+.transfer-item-selected {
+  background-color: #eff6ff;
+}
+
+.transfer-item-selected:hover:not(.transfer-item-disabled) {
+  background-color: #dbeafe;
+}
+
+.transfer-item-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.transfer-item-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.transfer-item-disabled .transfer-item-label {
+  cursor: not-allowed;
+}
+
+.transfer-item-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1;
+}
+
+.transfer-item-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.transfer-item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.transfer-item-title {
+  font-size: 14px;
+  color: #1f2937;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.transfer-item-description {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* Checkbox */
+.transfer-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: #3b82f6;
+}
+
+.transfer-checkbox:disabled {
+  cursor: not-allowed;
+}
+
+/* Controls */
+.transfer-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.transfer-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: white;
+  color: #374151;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.transfer-button:hover:not(:disabled) {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+.transfer-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.transfer-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Empty state */
+.transfer-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #9ca3af;
+  font-size: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Size variants */
+.transfer-sm .transfer-header {
+  padding: 8px 12px;
+}
+
+.transfer-sm .transfer-search {
+  padding: 8px 12px;
+}
+
+.transfer-sm .transfer-search-input {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.transfer-sm .transfer-item-label {
+  padding: 8px 12px;
+}
+
+.transfer-sm .transfer-item-title {
+  font-size: 13px;
+}
+
+.transfer-sm .transfer-item-description {
+  font-size: 11px;
+}
+
+.transfer-sm .transfer-button {
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+}
+
+.transfer-sm .transfer-title-text {
+  font-size: 13px;
+}
+
+.transfer-lg .transfer-header {
+  padding: 16px 20px;
+}
+
+.transfer-lg .transfer-search {
+  padding: 16px 20px;
+}
+
+.transfer-lg .transfer-search-input {
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.transfer-lg .transfer-item-label {
+  padding: 14px 20px;
+}
+
+.transfer-lg .transfer-item-title {
+  font-size: 15px;
+}
+
+.transfer-lg .transfer-item-description {
+  font-size: 13px;
+}
+
+.transfer-lg .transfer-button {
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+}
+
+.transfer-lg .transfer-title-text {
+  font-size: 15px;
+}
+
+/* Drag and drop */
+.transfer-item[draggable="true"] {
+  cursor: move;
+}
+
+.transfer-item[draggable="true"]:active {
+  opacity: 0.5;
+}
+
+.transfer-body[data-dragover] {
+  background-color: #eff6ff;
+  border: 2px dashed #3b82f6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .transfer-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .transfer-controls {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .transfer-button {
+    transform: rotate(90deg);
+  }
+
+  .transfer-button:hover:not(:disabled) {
+    transform: rotate(90deg) scale(1.05);
+  }
+
+  .transfer-button:active:not(:disabled) {
+    transform: rotate(90deg) scale(0.95);
+  }
+}
+
+/* Focus styles */
+.transfer-search-input:focus-visible,
+.transfer-checkbox:focus-visible,
+.transfer-button:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Animation */
+@keyframes itemAdded {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.transfer-item {
+  animation: itemAdded 0.2s ease;
+}

@@ -1,0 +1,135 @@
+:host {
+  display: block;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+}
+
+.breadcrumb-item-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  color: #64748b;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.breadcrumb-item.size-sm {
+  padding: 4px 8px;
+  font-size: 12px;
+  gap: 4px;
+}
+
+.breadcrumb-item.size-md {
+  padding: 6px 12px;
+  font-size: 14px;
+  gap: 6px;
+}
+
+.breadcrumb-item.size-lg {
+  padding: 8px 16px;
+  font-size: 16px;
+  gap: 8px;
+}
+
+.breadcrumb-item:hover:not(.active):not(.disabled) {
+  color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.breadcrumb-item.active {
+  color: #1e293b;
+  font-weight: 600;
+  cursor: default;
+  background-color: #f1f5f9;
+}
+
+.breadcrumb-item.disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.breadcrumb-item.home {
+  padding: 6px 10px;
+}
+
+.breadcrumb-content {
+  display: flex;
+  align-items: center;
+  gap: inherit;
+}
+
+.breadcrumb-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1em;
+  line-height: 1;
+}
+
+.breadcrumb-icon svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.breadcrumb-label {
+  white-space: nowrap;
+}
+
+.breadcrumb-separator {
+  display: inline-flex;
+  align-items: center;
+  color: #cbd5e1;
+  font-size: 0.875em;
+  user-select: none;
+  padding: 0 4px;
+}
+
+.breadcrumb-separator svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.breadcrumb-collapse {
+  padding: 6px 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .breadcrumb-item.size-md {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .breadcrumb-item.size-lg {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}

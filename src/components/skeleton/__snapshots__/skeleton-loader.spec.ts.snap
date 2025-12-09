@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`skeleton-loader renders avatar with size 1`] = `
+<skeleton-loader shape="avatar" size="lg">
+  <template shadowrootmode="open">
+    <div class="skeleton-animated skeleton-avatar skeleton-loader skeleton-pulse" style="width: 48px; height: 48px; border-radius: 50%;"></div>
+  </template>
+</skeleton-loader>
+`;
+
+exports[`skeleton-loader renders circle shape 1`] = `
+<skeleton-loader height="50px" shape="circle" width="50px">
+  <template shadowrootmode="open">
+    <div class="skeleton-animated skeleton-circle skeleton-loader skeleton-pulse" style="width: 50px; height: 50px; border-radius: 50%;"></div>
+  </template>
+</skeleton-loader>
+`;
+
+exports[`skeleton-loader renders with default properties 1`] = `
+<skeleton-loader>
+  <template shadowrootmode="open">
+    <div class="skeleton-animated skeleton-loader skeleton-pulse skeleton-rectangle" style="width: 32px; height: 32px; border-radius: 0;"></div>
+  </template>
+</skeleton-loader>
+`;
+
+exports[`skeleton-loader renders with different sizes 1`] = `
+<skeleton-loader size="lg">
+  <template shadowrootmode="open">
+    <div class="skeleton-animated skeleton-loader skeleton-pulse skeleton-rectangle" style="width: 48px; height: 48px; border-radius: 0;"></div>
+  </template>
+</skeleton-loader>
+`;

@@ -1,0 +1,418 @@
+/* CSS Variables for theming */
+:root {
+  --stepper-primary-color: #2563eb;
+  --stepper-secondary-color: #e5e7eb;
+  --stepper-success-color: #22c55e;
+  --stepper-error-color: #ef4444;
+  --stepper-warning-color: #f59e0b;
+  --stepper-info-color: #06b6d4;
+  --stepper-text-color: #111827;
+  --stepper-background-color: transparent;
+  --stepper-border-color: #e5e7eb;
+  --stepper-font-size: 1rem;
+  --stepper-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.stepper-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  background: var(--stepper-background-color, transparent);
+  padding: 24px 0;
+  gap: 0;
+  font-family: var(--stepper-font-family);
+  position: relative;
+}
+
+.stepper-vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stepper-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1 1 0;
+  min-width: 80px;
+  z-index: 1;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.stepper-step-clickable {
+  cursor: pointer;
+}
+
+.stepper-step-clickable:hover {
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.stepper-step-clickable:focus {
+  outline: 2px solid var(--stepper-primary-color);
+  outline-offset: 2px;
+}
+
+.stepper-step-error {
+  border: 1px solid var(--stepper-error-color);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.stepper-step-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* In horizontal mode, stack indicator and content vertically */
+.stepper-horizontal .stepper-step-wrapper {
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.stepper-step-content,
+.stepper-step-content-horizontal {
+  margin-top: 12px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.stepper-step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: var(--stepper-secondary-color, #e5e7eb);
+  color: #6b7280;
+  border: 2px solid var(--stepper-border-color, #e5e7eb);
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.stepper-step-active .stepper-step-indicator {
+  background: var(--stepper-primary-color, #2563eb);
+  color: #fff;
+  border-color: var(--stepper-primary-color, #2563eb);
+  box-shadow: 0 0 0 4px #2563eb22;
+}
+
+.stepper-step-completed .stepper-step-indicator {
+  background: var(--stepper-success-color, #22c55e);
+  color: #fff;
+  border-color: var(--stepper-success-color, #22c55e);
+}
+
+.stepper-step-failed .stepper-step-indicator {
+  background: var(--stepper-error-color, #ef4444);
+  color: #fff;
+  border-color: var(--stepper-error-color, #ef4444);
+}
+
+.stepper-step-disabled .stepper-step-indicator {
+  background: #f3f4f6;
+  color: #d1d5db;
+  border-color: #f3f4f6;
+}
+
+.stepper-step-waiting .stepper-step-indicator {
+  background: var(--stepper-warning-color, #f59e0b);
+  color: var(--stepper-text-color, #111827);
+}
+
+.stepper-step-info .stepper-step-indicator {
+  background: var(--stepper-info-color, #06b6d4);
+  color: #fff;
+}
+
+.stepper-step-icon {
+  font-size: 1.25rem;
+}
+
+.stepper-step-number {
+  font-size: 1.1rem;
+}
+
+.stepper-step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepper-step-label {
+  font-size: var(--stepper-font-size, 1rem);
+  font-weight: 500;
+  color: var(--stepper-text-color, #111827);
+}
+
+.stepper-step-description {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.stepper-step-error-message {
+  font-size: 0.85rem;
+  color: var(--stepper-error-color, #ef4444);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Connector base */
+.stepper-connector {
+  position: absolute;
+  z-index: 0;
+  border-radius: 2px;
+  background: var(--stepper-border-color, #e5e7eb);
+  transition: background 0.2s;
+}
+
+.stepper-connector-horizontal {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 72px;
+  min-width: 32px;
+  height: 6px;
+}
+
+@media (max-width: 900px) {
+  .stepper-connector-horizontal {
+    width: 48px;
+    min-width: 24px;
+    height: 5px;
+  }
+}
+
+@media (max-width: 700px) {
+  .stepper-connector-horizontal {
+    width: 32px;
+    min-width: 16px;
+    height: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepper-connector-horizontal {
+    width: 20px;
+    min-width: 10px;
+    height: 3px;
+  }
+}
+
+.stepper-connector-vertical {
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 8px;
+  min-width: 4px;
+  height: 72px;
+  min-height: 32px;
+}
+
+.stepper-connector-completed {
+  background: var(--stepper-success-color, #22c55e);
+}
+
+.stepper-connector-active {
+  background: var(--stepper-primary-color, #2563eb);
+}
+
+.stepper-connector-failed {
+  background: var(--stepper-error-color, #ef4444);
+}
+
+.stepper-connector-pending {
+  background: var(--stepper-border-color, #e5e7eb);
+}
+
+/* Controls */
+.stepper-controls {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.stepper-btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  font-size: var(--stepper-font-size, 1rem);
+  font-weight: 500;
+  background: var(--stepper-primary-color, #2563eb);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--stepper-font-family);
+}
+
+.stepper-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.stepper-btn:focus {
+  outline: 2px solid var(--stepper-primary-color);
+  outline-offset: 2px;
+}
+
+.stepper-btn:disabled {
+  background: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.stepper-btn.finish {
+  background: var(--stepper-success-color, #22c55e);
+}
+
+.stepper-btn.fail {
+  background: var(--stepper-error-color, #ef4444);
+}
+
+/* Size variants */
+.stepper-sm .stepper-step-indicator {
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+}
+
+.stepper-sm .stepper-step-label {
+  font-size: 0.9rem;
+}
+
+.stepper-lg .stepper-step-indicator {
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+}
+
+.stepper-lg .stepper-step-label {
+  font-size: 1.1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .stepper-responsive.stepper-horizontal {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .stepper-responsive.stepper-horizontal .stepper-step {
+    min-width: 0;
+    width: 100%;
+    flex: none;
+  }
+
+  .stepper-responsive.stepper-horizontal .stepper-connector-horizontal {
+    display: none;
+  }
+
+  .stepper-responsive .stepper-controls {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .stepper-responsive .stepper-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepper-container {
+    padding: 16px 0;
+    gap: 0;
+  }
+
+  .stepper-step {
+    min-width: 60px;
+  }
+
+  .stepper-step-indicator {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .stepper-step-label {
+    font-size: 0.9rem;
+    max-width: 80vw;
+    word-break: break-word;
+  }
+
+  .stepper-step-description {
+    font-size: 0.8rem;
+    max-width: 80vw;
+    word-break: break-word;
+  }
+
+  .stepper-controls {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .stepper-btn {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+}
+
+/* Focus and accessibility styles */
+.stepper-container:focus {
+  outline: 2px solid var(--stepper-primary-color);
+  outline-offset: 2px;
+}
+
+/* Animation for step transitions */
+@keyframes stepPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.stepper-step-active .stepper-step-indicator {
+  animation: stepPulse 2s infinite;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .stepper-step-indicator {
+    border: 2px solid currentColor;
+  }
+
+  .stepper-connector {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .stepper-step-indicator,
+  .stepper-step,
+  .stepper-btn,
+  .stepper-connector {
+    transition: none;
+  }
+
+  .stepper-step-active .stepper-step-indicator {
+    animation: none;
+  }
+}

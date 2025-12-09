@@ -1,0 +1,150 @@
+/* Skeleton Loader Styles */
+:host {
+  display: block;
+}
+
+.skeleton-loader {
+  background: var(--skeleton-bg, #f0f0f0);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-animated.skeleton-pulse {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-animated.skeleton-wave {
+  background: linear-gradient(90deg, var(--skeleton-bg, #f0f0f0) 25%, var(--skeleton-wave-bg, #e0e0e0) 50%, var(--skeleton-bg, #f0f0f0) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-wave 1.5s ease-in-out infinite;
+}
+
+/* Shape-specific styles */
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-rounded {
+  border-radius: var(--skeleton-border-radius, 4px);
+}
+
+.skeleton-text {
+  border-radius: 4px;
+}
+
+.skeleton-avatar {
+  border-radius: 50%;
+}
+
+.skeleton-button {
+  border-radius: 6px;
+}
+
+.skeleton-card {
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.skeleton-list-item {
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Card content layout */
+.skeleton-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skeleton-card-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skeleton-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* List item content layout */
+.skeleton-list-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.skeleton-list-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Apply animation to nested elements */
+.skeleton-card .skeleton-circle,
+.skeleton-card .skeleton-text,
+.skeleton-list-item .skeleton-circle,
+.skeleton-list-item .skeleton-text {
+  background: var(--skeleton-bg, #f0f0f0);
+  animation: inherit;
+}
+
+/* Animations */
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes skeleton-wave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .skeleton-loader {
+    --skeleton-bg: #2a2a2a;
+    --skeleton-wave-bg: #3a3a3a;
+  }
+}
+
+/* Custom properties for theming */
+:host {
+  --skeleton-bg: #f0f0f0;
+  --skeleton-wave-bg: #e0e0e0;
+  --skeleton-border-radius: 4px;
+}
+
+/* Theme overrides */
+:host(.theme-dark) .skeleton-loader {
+  --skeleton-bg: #2a2a2a;
+  --skeleton-wave-bg: #3a3a3a;
+}
+
+:host(.theme-light) .skeleton-loader {
+  --skeleton-bg: #f0f0f0;
+  --skeleton-wave-bg: #e0e0e0;
+}</content>
+<filePath>c:/Praveen/Personal-repo/stencil/app-ui-library/src/components/skeleton/skeleton-loader.css

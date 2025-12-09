@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.smart-step {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-header {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: #f3f4f6;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.step-header:hover {
+  background: #e5e7eb;
+}
+
+.step-header.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+.step-header.completed {
+  background: #22c55e;
+  color: #fff;
+}
+
+.stepper-content {
+  min-height: 80px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  padding: 16px;
+  display: none;
+}
+
+.stepper-content.active {
+  display: block;
+}

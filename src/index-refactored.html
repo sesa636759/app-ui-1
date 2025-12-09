@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Component Library Demo</title>
+  
+  <!-- External Dependencies -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="/aside-panel-theme.css">
+  <link rel="stylesheet" href="/nav-sidebar-theme.css">
+  
+  <!-- Demo Styles -->
+  <link rel="stylesheet" href="/build/assets/styles/demo.css">
+  
+  <!-- Component Scripts -->
+  <script type="module" src="/build/exploration-project-tailwind.esm.js"></script>
+  <script nomodule src="/build/exploration-project-tailwind.js"></script>
+  
+  <!-- Demo Navigation Script -->
+  <script src="/build/assets/js/demo-nav.js"></script>
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <nav-bar id="mainNav"></nav-bar>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Component Library Demo</h1>
+
+      <!-- Component Navigation -->
+      <div class="component-nav">
+        <div class="nav-header">
+          <h3>📚 Component Library</h3>
+          <small class="nav-hint">Use ← → arrow keys to navigate</small>
+        </div>
+        <div class="nav-buttons" id="navButtons">
+          <!-- Navigation buttons will be loaded here -->
+        </div>
+      </div>
+
+      <!-- Demo Sections Container -->
+      <div id="demo-sections">
+        <!-- Demo sections will be loaded dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Initialize Demo App -->
+  <script type="module">
+    import { COMPONENTS } from '/build/assets/js/component-config.js';
+    
+    // Generate navigation buttons
+    const navButtons = document.getElementById('navButtons');
+    COMPONENTS.forEach((comp, index) => {
+      const button = document.createElement('button');
+      button.className = `nav-btn ${index === 0 ? 'active' : ''}`;
+      button.setAttribute('data-section', comp.id);
+      button.textContent = comp.label;
+      button.onclick = () => showSection(comp.id);
+      navButtons.appendChild(button);
+    });
+
+    // Load demo sections
+    async function loadDemoSections() {
+      const container = document.getElementById('demo-sections');
+      
+      // For now, load all sections (in production, consider lazy loading)
+      const response = await fetch('/build/assets/demos/sections.html');
+      const html = await response.text();
+      container.innerHTML = html;
+      
+      // Initialize first section
+      showSection('home');
+    }
+
+    // Load demos when DOM is ready
+    document.addEventListener('DOMContentLoaded', loadDemoSections);
+  </script>
+</body>
+
+</html>

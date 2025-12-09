@@ -1,0 +1,221 @@
+/* A-Divider Component Styles */
+.adivider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 16px 0;
+}
+
+.adivider-vertical {
+  flex-direction: column;
+  height: 100%;
+  width: auto;
+  margin: 0 16px;
+}
+
+.adivider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.adivider-vertical .adivider-line {
+  width: 1px;
+  height: auto;
+  flex: 1;
+}
+
+.adivider-text {
+  padding: 0 16px;
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  text-transform: var(--divider-text-transform, capitalize);
+}
+
+.adivider-vertical .adivider-text {
+  padding: 16px 0;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.1em;
+}
+
+/* Text alignment styles */
+.adivider-text-left .adivider-line:first-child {
+  flex: 0 0 20px;
+}
+
+.adivider-text-left .adivider-line:last-child {
+  flex: 1;
+}
+
+.adivider-text-center .adivider-line:first-child,
+.adivider-text-center .adivider-line:last-child {
+  flex: 1;
+}
+
+.adivider-text-right .adivider-line:first-child {
+  flex: 1;
+}
+
+.adivider-text-right .adivider-line:last-child {
+  flex: 0 0 20px;
+}
+
+/* Vertical divider text alignment */
+.adivider-vertical.adivider-text-left .adivider-line:first-child {
+  flex: 0 0 20px;
+}
+
+.adivider-vertical.adivider-text-left .adivider-line:last-child {
+  flex: 1;
+}
+
+.adivider-vertical.adivider-text-center .adivider-line:first-child,
+.adivider-vertical.adivider-text-center .adivider-line:last-child {
+  flex: 1;
+}
+
+.adivider-vertical.adivider-text-right .adivider-line:first-child {
+  flex: 1;
+}
+
+.adivider-vertical.adivider-text-right .adivider-line:last-child {
+  flex: 0 0 20px;
+}
+
+/* Variants */
+
+.adivider-solid .adivider-line {
+  /* Use background color only for a single centered line */
+  background-color: #e5e7eb;
+}
+
+.adivider-dashed .adivider-line {
+  border-bottom: 2px dashed #d1d5db;
+  background: none;
+  height: 0;
+}
+
+.adivider-dotted .adivider-line {
+  border-bottom: 2px dotted #d1d5db;
+  background: none;
+  height: 0;
+}
+
+/* Double variants - two parallel lines */
+.adivider-double-solid .adivider-line {
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  height: 3px;
+  background: none;
+}
+
+.adivider-double-dashed .adivider-line {
+  border-top: 2px dashed #d1d5db;
+  border-bottom: 2px dashed #d1d5db;
+  height: 3px;
+  background: none;
+}
+
+.adivider-double-dotted .adivider-line {
+  border-top: 2px dotted #d1d5db;
+  border-bottom: 2px dotted #d1d5db;
+  height: 3px;
+  background: none;
+}
+
+/* Sizes */
+.adivider-sm .adivider-line {
+  height: 1px;
+}
+
+.adivider-sm.adivider-vertical .adivider-line {
+  width: 1px;
+}
+
+.adivider-md .adivider-line {
+  height: 2px;
+}
+
+.adivider-md.adivider-vertical .adivider-line {
+  width: 2px;
+}
+
+.adivider-lg .adivider-line {
+  height: 3px;
+}
+
+.adivider-lg.adivider-vertical .adivider-line {
+  width: 3px;
+}
+
+/* For dashed and dotted variants, adjust border width based on size */
+.adivider-sm.adivider-dashed .adivider-line {
+  border-bottom-width: 1px;
+}
+
+.adivider-sm.adivider-dotted .adivider-line {
+  border-bottom-width: 1px;
+}
+
+.adivider-md.adivider-dashed .adivider-line {
+  border-bottom-width: 2px;
+}
+
+.adivider-md.adivider-dotted .adivider-line {
+  border-bottom-width: 2px;
+}
+
+.adivider-lg.adivider-dashed .adivider-line {
+  border-bottom-width: 3px;
+}
+
+.adivider-lg.adivider-dotted .adivider-line {
+  border-bottom-width: 3px;
+}
+
+/* Size adjustments for double variants */
+.adivider-sm.adivider-double-solid .adivider-line,
+.adivider-sm.adivider-double-dashed .adivider-line,
+.adivider-sm.adivider-double-dotted .adivider-line {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  height: 2px;
+}
+
+.adivider-md.adivider-double-solid .adivider-line,
+.adivider-md.adivider-double-dashed .adivider-line,
+.adivider-md.adivider-double-dotted .adivider-line {
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  height: 4px;
+}
+
+.adivider-lg.adivider-double-solid .adivider-line,
+.adivider-lg.adivider-double-dashed .adivider-line,
+.adivider-lg.adivider-double-dotted .adivider-line {
+  border-top-width: 3px;
+  border-bottom-width: 3px;
+  height: 6px;
+}
+
+/* Custom color support */
+.adivider-custom .adivider-line {
+  background-color: var(--divider-color, #e5e7eb);
+}
+
+.adivider-custom.adivider-dashed .adivider-line,
+.adivider-custom.adivider-dotted .adivider-line,
+.adivider-custom.adivider-double-solid .adivider-line,
+.adivider-custom.adivider-double-dashed .adivider-line,
+.adivider-custom.adivider-double-dotted .adivider-line {
+  border-color: var(--divider-color, #e5e7eb);
+}
+
+.adivider-custom .adivider-text {
+  color: var(--divider-text-color, #6b7280);
+}

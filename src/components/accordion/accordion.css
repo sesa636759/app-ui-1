@@ -1,0 +1,289 @@
+/* Accordion Container */
+.accordion-container {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Numbered Indicators */
+.accordion-indicators {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  flex-wrap: wrap;
+}
+
+.accordion-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  background-color: white;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.accordion-indicator:hover:not(.accordion-indicator-disabled) {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.accordion-indicator:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.accordion-indicator-active {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.accordion-indicator-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Accordion Item */
+.accordion-item {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-item-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Accordion Header */
+.accordion-header {
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.accordion-header:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+}
+
+.accordion-header:hover:not(.accordion-header-disabled) {
+  background-color: #f9fafb;
+}
+
+.accordion-item-open .accordion-header {
+  background-color: #f0f9ff;
+  border-left: 3px solid #3b82f6;
+}
+
+.accordion-header:active:not(.accordion-header-disabled) {
+  background-color: #f3f4f6;
+}
+
+.accordion-header-disabled {
+  cursor: not-allowed;
+  color: #9ca3af;
+}
+
+/* Header Content */
+.accordion-header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Icon */
+.accordion-icon {
+  font-size: 18px;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+/* Image */
+.accordion-image {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Title */
+.accordion-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Badge */
+.accordion-badge {
+  background-color: #ef4444;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Arrow */
+.accordion-arrow {
+  font-size: 12px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.accordion-item-open .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+/* Accordion Content */
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height var(--animation-duration, 300ms) var(--animation-timing, ease), 
+              opacity var(--animation-duration, 300ms) var(--animation-timing, ease);
+  background-color: #f9fafb;
+}
+
+.accordion-content:not(.accordion-content-open) {
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordion-content-open {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.accordion-content-inner {
+  padding: 16px 20px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+  line-height: 1.6;
+}
+
+/* Size Variants */
+.accordion-container.accordion-sm .accordion-header {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.accordion-container.accordion-sm .accordion-content-inner {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.accordion-container.accordion-lg .accordion-header {
+  padding: 20px 24px;
+  font-size: 18px;
+}
+
+.accordion-container.accordion-lg .accordion-content-inner {
+  padding: 20px 24px;
+  font-size: 16px;
+}
+
+/* Theme Variants */
+.accordion-container.accordion-bordered .accordion-item {
+  border: 1px solid #e5e7eb;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+.accordion-container.accordion-bordered .accordion-item:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-container.accordion-bordered {
+  border: none;
+  background: transparent;
+}
+
+/* Animation keyframes for smooth expand/collapse */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Focus styles for accessibility */
+.accordion-header:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .accordion-header {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .accordion-content-inner {
+    padding: 12px 16px;
+  }
+
+  .accordion-header-content {
+    gap: 8px;
+  }
+
+  .accordion-badge {
+    font-size: 11px;
+    padding: 1px 6px;
+  }
+}

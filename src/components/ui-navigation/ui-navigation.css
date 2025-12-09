@@ -1,0 +1,44 @@
+:host {
+  --nav-bg: #fff;
+  --nav-color: #222;
+  --nav-hover-bg: #f3f4f6;
+  --nav-active-bg: #e0e7ff;
+  --nav-width: 240px;
+  --nav-collapsed-width: 64px;
+  --nav-animation-duration: 350ms;
+  --nav-easing: cubic-bezier(0.4,0,0.2,1);
+}
+.ui-navigation {
+  background: var(--nav-bg);
+  color: var(--nav-color);
+  width: var(--nav-width);
+  min-width: var(--nav-collapsed-width);
+  height: var(--nav-height);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border-radius: 18px;
+  transition: width var(--nav-animation-duration) var(--nav-easing), background 0.2s;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1000;
+}
+.ui-navigation.floating {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  border-radius: 32px;
+}
+.ui-navigation.collapsed {
+  width: var(--nav-collapsed-width);
+}
+.ui-navigation.horizontal {
+  flex-direction: row;
+  height: var(--nav-height);
+  width: 100vw;
+}
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 8px;
+  align-self: flex-end;
+}

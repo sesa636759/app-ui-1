@@ -1,0 +1,253 @@
+:host {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rating-items {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.rating-item {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
+  color: #d1d5db;
+  outline: none;
+  user-select: none;
+}
+
+.rating-item:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Sizes */
+.rating-sm .rating-item {
+  font-size: 18px;
+  padding: 2px;
+}
+
+.rating-md .rating-item {
+  font-size: 24px;
+  padding: 4px;
+}
+
+.rating-lg .rating-item {
+  font-size: 32px;
+  padding: 6px;
+}
+
+/* Star Rating */
+.rating-star .rating-item:not(.rating-item-active):hover {
+  transform: scale(1.1);
+}
+
+.rating-star .rating-item-active {
+  color: var(--rating-color, #fbbf24);
+}
+
+/* Color variants for stars */
+.rating-star.rating-primary .rating-item-active {
+  color: #3b82f6;
+}
+
+.rating-star.rating-warning .rating-item-active {
+  color: #fbbf24;
+}
+
+.rating-star.rating-success .rating-item-active {
+  color: #10b981;
+}
+
+.rating-star.rating-danger .rating-item-active {
+  color: #ef4444;
+}
+
+/* Smiley Rating */
+.rating-smiley .rating-items {
+  gap: 8px;
+}
+
+.smiley-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-item-smiley {
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.rating-item-smiley:hover:not(:disabled) {
+  transform: scale(1.15);
+  filter: grayscale(0%);
+  opacity: 1;
+  background-color: #e5e7eb;
+}
+
+.rating-item-smiley.rating-item-active,
+.rating-item-smiley.rating-item-selected {
+  filter: grayscale(0%);
+  opacity: 1;
+  background-color: #fef3c7;
+  transform: scale(1.1);
+}
+
+.smiley-label {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.rating-sm .rating-item-smiley {
+  padding: 6px;
+}
+
+.rating-lg .rating-item-smiley {
+  padding: 10px;
+}
+
+/* Thumb Rating */
+.rating-thumb .rating-items {
+  gap: 16px;
+}
+
+.rating-item-thumb {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  filter: grayscale(100%);
+}
+
+.rating-item-thumb:hover:not(:disabled) {
+  transform: scale(1.15);
+  background-color: #e5e7eb;
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.rating-item-thumb.rating-item-active {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.rating-item-thumb-up.rating-item-active {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.rating-item-thumb-down.rating-item-active {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.rating-sm .rating-item-thumb {
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.rating-lg .rating-item-thumb {
+  padding: 14px;
+  border-radius: 10px;
+}
+
+/* Value Display */
+.rating-value {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.rating-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.rating-number {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.rating-sm .rating-label {
+  font-size: 12px;
+}
+
+.rating-sm .rating-number {
+  font-size: 10px;
+}
+
+.rating-lg .rating-label {
+  font-size: 16px;
+}
+
+.rating-lg .rating-number {
+  font-size: 14px;
+}
+
+/* States */
+.rating-readonly .rating-item {
+  cursor: default;
+  pointer-events: none;
+}
+
+.rating-disabled .rating-item {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.rating-disabled .rating-item:hover {
+  transform: none;
+}
+
+/* Hover effects */
+.rating-item-hover {
+  transform: scale(1.05);
+}
+
+/* Half star */
+.rating-item-half {
+  position: relative;
+  color: var(--rating-color, #fbbf24);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.rating-item-active {
+  animation: pulse 0.3s ease;
+}

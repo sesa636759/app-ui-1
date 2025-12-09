@@ -1,0 +1,63 @@
+@import "./qds-variable";
+
+$prefix: "--se-"; //Prefix string for custom CSS properties
+$rgb-suffix: "-rgb";
+
+//Merges a variable name with $prefix
+@function custom-property-name($name) {
+  @return $prefix + $name;
+}
+
+// Defines a custom property
+@mixin define-custom-property($name, $value) {
+  #{custom-property-name($name)}: $value;
+  @if (type-of($value) == color) {
+    #{custom-property-name($name + $rgb-suffix)}: #{red($value)},
+      #{green($value)}, #{blue($value)};
+  }
+}
+
+// define color variable based on $seTheme
+@mixin color($colorTheme, $transparencies: "none") {
+  $color: map-get($seTheme, $colorTheme);
+  @if $transparencies == "none" {
+    color: var(#{custom-property-name($colorTheme)}, $color);
+  } @else {
+    color: rgba(
+      var(#{custom-property-name($colorTheme + $rgb-suffix)}, $color),
+      $transparencies
+    );
+  }
+}
+@mixin fill($colorTheme) {
+  $color: map-get($seTheme, $colorTheme);
+  fill: var(#{custom-property-name($colorTheme)}, $color);
+}
+@mixin outline($colorTheme) {
+  $color: map-get($seTheme, $colorTheme);
+  outline-color: var(#{custom-property-name($colorTheme)}, $color);
+}
+
+@mixin background-color($colorTheme, $transparencies: "none") {
+  $color: map-get($seTheme, $colorTheme);
+  @if $transparencies == "none" {
+    background-color: var(#{custom-property-name($colorTheme)}, $color);
+  } @else {
+    background-color: rgba(
+      var(#{custom-property-name($colorTheme + $rgb-suffix)}, $color),
+      $transparencies
+    );
+  }
+}
+
+@mixin border-color($colorTheme, $transparencies: "none") {
+  $color: map-get($seTheme, $colorTheme);
+  @if $transparencies == "none" {
+    border-color: var(#{custom-property-name($colorTheme)}, $color) !important;
+  } @else {
+    border-color: rgba(
+      var(#{custom-property-name($colorTheme + $rgb-suffix)}, $color),
+      $transparencies
+    ) !important;
+  }
+}

@@ -1,0 +1,35 @@
+:host {
+  --nav-hover-bg: #f3f4f6;
+  --nav-active-bg: #e0e7ff;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+  position: relative;
+}
+.nav-item.active { background: var(--nav-active-bg); }
+.nav-item:hover:not(.disabled) { background: var(--nav-hover-bg); }
+.nav-item.disabled { opacity: 0.5; cursor: not-allowed; }
+.nav-icon { font-size: 20px; }
+.nav-label { font-size: 15px; font-weight: 500; }
+.nav-badge { background: #ef4444; color: #fff; border-radius: 12px; padding: 2px 8px; font-size: 12px; margin-left: auto; }
+.nav-arrow { margin-left: auto; font-size: 14px; }
+.nav-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 350ms var(--nav-easing), opacity 350ms var(--nav-easing);
+}
+.nav-item.open > .nav-submenu {
+  opacity: 1;
+  max-height: 500px;
+}

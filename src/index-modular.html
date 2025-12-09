@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Component Library Demo</title>
+  
+  <!-- External Dependencies -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <!-- Theme Styles -->
+  <link rel="stylesheet" href="/aside-panel-theme.css">
+  <link rel="stylesheet" href="/nav-sidebar-theme.css">
+  
+  <!-- Demo Styles -->
+  <link rel="stylesheet" href="/build/assets/styles/demo.css">
+  
+  <!-- Component Scripts -->
+  <script type="module" src="/build/exploration-project-tailwind.esm.js"></script>
+  <script nomodule src="/build/exploration-project-tailwind.js"></script>
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <nav-bar id="mainNav"></nav-bar>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Component Library Demo</h1>
+
+      <!-- Component Navigation -->
+      <div class="component-nav">
+        <div class="nav-header">
+          <h3>📚 Component Library</h3>
+          <small class="nav-hint">Use ← → arrow keys to navigate</small>
+        </div>
+        <div class="nav-buttons">
+          <button onclick="showSection('home')" class="nav-btn active" data-section="home">🏠 Home</button>
+          <button onclick="showSection('accordion')" class="nav-btn" data-section="accordion">📑 Accordion</button>
+          <button onclick="showSection('adivider')" class="nav-btn" data-section="adivider">➖ A-Divider</button>
+          <button onclick="showSection('tabs')" class="nav-btn" data-section="tabs">📑 Tabs</button>
+          <button onclick="showSection('nav-bar')" class="nav-btn" data-section="nav-bar">🧭 Navigation Bar</button>
+          <button onclick="showSection('aside-panel')" class="nav-btn" data-section="aside-panel">📱 Aside Panel</button>
+          <button onclick="showSection('dialog')" class="nav-btn" data-section="dialog">💬 Dialog Box</button>
+          <button onclick="showSection('context-menu')" class="nav-btn" data-section="context-menu">📋 Context Menu</button>
+          <button onclick="showSection('snackbar')" class="nav-btn" data-section="snackbar">🍞 Snackbar</button>
+          <button onclick="showSection('stepper')" class="nav-btn" data-section="stepper">📍 Stepper</button>
+          <button onclick="showSection('picklist')" class="nav-btn" data-section="picklist">📋 Picklist</button>
+          <button onclick="showSection('card')" class="nav-btn" data-section="card">🃏 Card</button>
+          <button onclick="showSection('panel')" class="nav-btn" data-section="panel">📋 Panel</button>
+          <button onclick="showSection('avatar')" class="nav-btn" data-section="avatar">👤 Avatar</button>
+          <button onclick="showSection('chip')" class="nav-btn" data-section="chip">🏷️ Chip</button>
+          <button onclick="showSection('badge')" class="nav-btn" data-section="badge">🔔 Badge</button>
+          <button onclick="showSection('tag')" class="nav-btn" data-section="tag">🏷 Tag</button>
+          <button onclick="showSection('meter-group')" class="nav-btn" data-section="meter-group">📊 Meter</button>
+          <button onclick="showSection('scroll-top')" class="nav-btn" data-section="scroll-top">⬆️ Scroll Top</button>
+          <button onclick="showSection('rating')" class="nav-btn" data-section="rating">⭐ Rating</button>
+          <button onclick="showSection('speed-dial')" class="nav-btn" data-section="speed-dial">⚡ Speed Dial</button>
+          <button onclick="showSection('cascade-select')" class="nav-btn" data-section="cascade-select">🔽 Cascade Select</button>
+          <button onclick="showSection('range-slider')" class="nav-btn" data-section="range-slider">🎚️ Range Slider</button>
+          <button onclick="showSection('transfer-list')" class="nav-btn" data-section="transfer-list">⇄ Transfer List</button>
+          <button onclick="showSection('tree-list')" class="nav-btn" data-section="tree-list">🌳 Tree List</button>
+          <button onclick="showSection('otp-input')" class="nav-btn" data-section="otp-input">🔢 OTP Input</button>
+          <button onclick="showSection('multi-level-context-menu')" class="nav-btn" data-section="multi-level-context-menu">🔄 Multi-Level Menu</button>
+          <button onclick="showSection('advanced-data-table')" class="nav-btn" data-section="advanced-data-table">📊 Advanced Table</button>
+          <button onclick="showSection('pagination')" class="nav-btn" data-section="pagination">📄 Pagination</button>
+          <button onclick="showSection('skeleton')" class="nav-btn" data-section="skeleton">💀 Skeleton</button>
+          <button onclick="showSection('theme-selector')" class="nav-btn" data-section="theme-selector">🎨 Theme Selector</button>
+        </div>
+      </div>
+
+      <!-- Home Section (Static) -->
+      <div id="home" class="demo-section section-active">
+        <h2>🏠 Welcome to Component Library</h2>
+        <p>Explore our collection of reusable UI components built with Stencil.js. Click on any component in the navigation above to see it in action.</p>
+
+        <div class="component-grid">
+          <div class="component-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <h3>🧭 Navigation Bar</h3>
+            <p>Advanced navigation with search, badges, and nested menus</p>
+          </div>
+          <div class="component-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <h3>📑 Accordion</h3>
+            <p>Collapsible content panels with icons and animations</p>
+          </div>
+          <div class="component-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #374151;">
+            <h3>➖ A-Divider</h3>
+            <p>Flexible dividers with optional text and custom styling</p>
+          </div>
+          <div class="component-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <h3>📱 Aside Panel</h3>
+            <p>Resizable side panels with smooth animations</p>
+          </div>
+          <div class="component-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <h3>💬 Dialog Box</h3>
+            <p>Modal dialogs with customizable headers and footers</p>
+          </div>
+          <div class="component-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+            <h3>🍞 Snackbar</h3>
+            <p>Toast notifications with auto-dismiss and stacking</p>
+          </div>
+          <div class="component-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #374151;">
+            <h3>📍 Stepper</h3>
+            <p>Progress indicators with multiple status states</p>
+          </div>
+          <div class="component-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <h3>📋 Picklist</h3>
+            <p>Dual-list selector with drag and drop support</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+          <h3>🚀 Getting Started</h3>
+          <p>Select any component from the navigation above to see live examples, code snippets, and documentation.</p>
+          <p>Use the arrow keys (← →) to quickly navigate between components.</p>
+          <p><strong>Performance:</strong> Demos are loaded dynamically on-demand for optimal performance.</p>
+        </div>
+      </div>
+
+      <!-- Empty Demo Section Containers (Loaded Dynamically) -->
+      <div id="accordion" class="demo-section"></div>
+      <div id="adivider" class="demo-section"></div>
+      <div id="tabs" class="demo-section"></div>
+      <div id="nav-bar" class="demo-section"></div>
+      <div id="aside-panel" class="demo-section"></div>
+      <div id="dialog" class="demo-section"></div>
+      <div id="context-menu" class="demo-section"></div>
+      <div id="snackbar" class="demo-section"></div>
+      <div id="stepper" class="demo-section"></div>
+      <div id="picklist" class="demo-section"></div>
+      <div id="card" class="demo-section"></div>
+      <div id="panel" class="demo-section"></div>
+      <div id="avatar" class="demo-section"></div>
+      <div id="chip" class="demo-section"></div>
+      <div id="badge" class="demo-section"></div>
+      <div id="tag" class="demo-section"></div>
+      <div id="meter-group" class="demo-section"></div>
+      <div id="scroll-top" class="demo-section"></div>
+      <div id="rating" class="demo-section"></div>
+      <div id="speed-dial" class="demo-section"></div>
+      <div id="otp-input" class="demo-section"></div>
+      <div id="multi-level-context-menu" class="demo-section"></div>
+      <div id="advanced-data-table" class="demo-section"></div>
+      <div id="cascade-select" class="demo-section"></div>
+      <div id="range-slider" class="demo-section"></div>
+      <div id="transfer-list" class="demo-section"></div>
+      <div id="tree-list" class="demo-section"></div>
+      <div id="pagination" class="demo-section"></div>
+      <div id="skeleton" class="demo-section"></div>
+      <div id="theme-selector" class="demo-section"></div>
+    </div>
+  </div>
+
+  <!-- Demo Navigation Script (ES Module) -->
+  <script type="module" src="/build/assets/js/demo-nav.js"></script>
+  
+  <!-- Global showSection function -->
+  <script type="module">
+    import { preloadCriticalDemos } from '/build/assets/js/demo-loader.js';
+    
+    // Make showSection available globally
+    import('/build/assets/js/demo-nav.js').then(module => {
+      window.showSection = async (sectionId) => {
+        const { default: navModule } = await import('/build/assets/js/demo-nav.js');
+        if (navModule && navModule.showSection) {
+          navModule.showSection(sectionId);
+        }
+      };
+    });
+
+    // Preload critical demos
+    document.addEventListener('DOMContentLoaded', () => {
+      preloadCriticalDemos();
+    });
+  </script>
+</body>
+
+</html>

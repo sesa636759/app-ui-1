@@ -1,0 +1,66 @@
+/* Dialog Header */
+.dialog-header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  cursor: move;
+  user-select: none;
+}
+
+.dialog-title-section {
+  flex: 1;
+  margin: 0;
+}
+
+.dialog-title-section h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Controls */
+.dialog-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.dialog-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dialog-btn:hover {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.dialog-btn-close:hover {
+  background-color: #ef4444;
+  color: white;
+}
+
+.dialog-btn svg {
+  width: 16px;
+  height: 16px;
+}

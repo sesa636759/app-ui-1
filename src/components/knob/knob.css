@@ -1,0 +1,141 @@
+:host {
+  display: inline-block;
+}
+
+.knob-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.knob-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+  transition: transform 0.1s ease;
+}
+
+.knob-container:hover:not(.disabled):not(.readonly) {
+  transform: scale(1.02);
+}
+
+.knob-container.dragging {
+  cursor: grabbing;
+  transform: scale(1.05);
+}
+
+.knob-container.disabled,
+.knob-container.readonly {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.knob-svg {
+  display: block;
+  overflow: visible;
+}
+
+.value-arc {
+  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
+  transition: stroke 0.2s ease;
+}
+
+.knob-container:hover:not(.disabled):not(.readonly) .value-arc {
+  filter: drop-shadow(0 3px 6px rgba(59, 130, 246, 0.4));
+}
+
+.center-dot {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.indicator {
+  transition: all 0.1s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.value-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.value-number {
+  font-size: calc(var(--knob-size, 120px) * 0.2);
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.value-suffix {
+  font-size: calc(var(--knob-size, 120px) * 0.12);
+  font-weight: 600;
+  color: #64748b;
+  line-height: 1;
+}
+
+.min-max-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+  padding: 0 8px;
+}
+
+.min-label,
+.max-label {
+  white-space: nowrap;
+}
+
+/* Animation for value changes */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.knob-container.dragging .value-label {
+  animation: pulse 0.3s ease-in-out;
+}
+
+/* Touch feedback */
+.knob-container:active:not(.disabled):not(.readonly) {
+  transform: scale(1.05);
+}
+
+/* Accessibility */
+.knob-container:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+/* Responsive sizing */
+@media (max-width: 640px) {
+  .value-number {
+    font-size: calc(var(--knob-size, 120px) * 0.18);
+  }
+
+  .value-suffix {
+    font-size: calc(var(--knob-size, 120px) * 0.11);
+  }
+
+  .min-max-labels {
+    font-size: 11px;
+  }
+}

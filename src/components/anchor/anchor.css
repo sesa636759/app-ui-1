@@ -1,0 +1,115 @@
+/* Anchor Container */
+.anchor-container {
+  position: relative;
+  display: flex;
+}
+
+.anchor-vertical {
+  flex-direction: column;
+  padding-left: 12px;
+}
+
+.anchor-horizontal {
+  flex-direction: row;
+  align-items: center;
+  padding-top: 12px;
+}
+
+/* Anchor Indicator */
+.anchor-indicator {
+  position: absolute;
+  background-color: var(--primary-color, #3b82f6);
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.anchor-vertical .anchor-indicator {
+  left: 0;
+  width: 2px;
+  height: 20px;
+  top: 0;
+}
+
+.anchor-horizontal .anchor-indicator {
+  top: 0;
+  height: 2px;
+  width: 40px;
+  left: 0;
+}
+
+/* Anchor Links */
+.anchor-links {
+  display: flex;
+  gap: 4px;
+}
+
+.anchor-vertical .anchor-links {
+  flex-direction: column;
+}
+
+.anchor-horizontal .anchor-links {
+  flex-direction: row;
+}
+
+/* Anchor Link */
+.anchor-link {
+  position: relative;
+  padding: 6px 12px;
+  color: var(--text-secondary, #6b7280);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.anchor-link:hover {
+  color: var(--primary-color, #3b82f6);
+  background-color: var(--hover-bg, rgba(59, 130, 246, 0.1));
+}
+
+.anchor-link-active {
+  color: var(--primary-color, #3b82f6);
+  font-weight: 600;
+}
+
+/* Focus Styles */
+.anchor-link:focus {
+  outline: 2px solid var(--primary-color, #3b82f6);
+  outline-offset: 2px;
+}
+
+.anchor-link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .anchor-link {
+    color: var(--text-secondary, #9ca3af);
+  }
+
+  .anchor-link:hover {
+    color: var(--primary-color, #60a5fa);
+    background-color: var(--hover-bg, rgba(96, 165, 250, 0.1));
+  }
+
+  .anchor-link-active {
+    color: var(--primary-color, #60a5fa);
+  }
+
+  .anchor-indicator {
+    background-color: var(--primary-color, #60a5fa);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .anchor-link,
+  .anchor-indicator {
+    transition: none;
+  }
+}

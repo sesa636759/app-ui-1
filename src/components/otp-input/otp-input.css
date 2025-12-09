@@ -1,0 +1,188 @@
+:host {
+  display: block;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container */
+.otp-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Input Wrapper */
+.otp-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Input Field */
+.otp-input {
+  width: 48px;
+  height: 56px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: white;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  outline: none;
+  caret-color: #3b82f6;
+}
+
+.otp-input:hover:not(:disabled) {
+  border-color: #cbd5e1;
+}
+
+.otp-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.otp-input:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.otp-input-active {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.otp-input-filled {
+  border-color: #6b7280;
+  background-color: #f9fafb;
+}
+
+/* Size Variants */
+.otp-sm .otp-input {
+  width: 40px;
+  height: 48px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+.otp-lg .otp-input {
+  width: 56px;
+  height: 64px;
+  font-size: 28px;
+  border-radius: 10px;
+}
+
+/* States */
+.otp-error .otp-input {
+  border-color: #ef4444;
+}
+
+.otp-error .otp-input:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.otp-error .otp-input-filled {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.otp-success .otp-input {
+  border-color: #10b981;
+}
+
+.otp-success .otp-input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.otp-success .otp-input-filled {
+  border-color: #10b981;
+  background-color: #f0fdf4;
+}
+
+.otp-disabled .otp-input {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+}
+
+/* Separator */
+.otp-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 4px;
+}
+
+.otp-sm .otp-separator {
+  font-size: 16px;
+  margin: 0 2px;
+}
+
+.otp-lg .otp-separator {
+  font-size: 24px;
+  margin: 0 6px;
+}
+
+/* Hide number input spinners */
+.otp-input::-webkit-outer-spin-button,
+.otp-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.otp-input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.otp-error .otp-container {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Focus within */
+.otp-container:focus-within .otp-input:not(:focus):not(:disabled) {
+  border-color: #d1d5db;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .otp-container {
+    gap: 6px;
+  }
+
+  .otp-input-wrapper {
+    gap: 6px;
+  }
+
+  .otp-md .otp-input {
+    width: 44px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .otp-lg .otp-input {
+    width: 50px;
+    height: 60px;
+    font-size: 26px;
+  }
+}
+
+/* Accessibility */
+.otp-input:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

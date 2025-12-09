@@ -1,0 +1,226 @@
+:host {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.pattern-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Label */
+.pattern-input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.pattern-input-required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+/* Container */
+.pattern-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  padding: 0 12px;
+}
+
+.pattern-input-container:hover:not(.pattern-input-container-error) {
+  border-color: #9ca3af;
+}
+
+.pattern-input-container-focused {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.pattern-input-container-error {
+  border-color: #ef4444;
+}
+
+.pattern-input-container-error.pattern-input-container-focused {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.pattern-input-container-success {
+  border-color: #10b981;
+}
+
+.pattern-input-container-success.pattern-input-container-focused {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Input Field */
+.pattern-input-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #1f2937;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+}
+
+.pattern-input-field::placeholder {
+  color: #9ca3af;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: normal;
+}
+
+.pattern-input-field:disabled {
+  cursor: not-allowed;
+  color: #9ca3af;
+  background: #f9fafb;
+}
+
+/* Sizes */
+.pattern-input-sm {
+  padding: 6px 10px;
+}
+
+.pattern-input-sm .pattern-input-field {
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+.pattern-input-md {
+  padding: 8px 12px;
+}
+
+.pattern-input-md .pattern-input-field {
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.pattern-input-lg {
+  padding: 10px 14px;
+}
+
+.pattern-input-lg .pattern-input-field {
+  font-size: 16px;
+  padding: 6px 0;
+}
+
+/* Status Icons */
+.pattern-input-status {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-error {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.status-success {
+  background: #f0fdf4;
+  color: #10b981;
+}
+
+/* Footer */
+.pattern-input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 20px;
+}
+
+.pattern-input-messages {
+  flex: 1;
+}
+
+/* Helper and Validation Messages */
+.helper-text,
+.validation-message {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.helper-text {
+  color: #6b7280;
+}
+
+.validation-error {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.validation-success {
+  color: #10b981;
+  font-weight: 500;
+}
+
+/* Character Counter */
+.char-counter {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+/* Disabled State */
+.pattern-input-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pattern-input-disabled .pattern-input-container {
+  background: #f9fafb;
+  cursor: not-allowed;
+}
+
+/* Focus visible for accessibility */
+.pattern-input-field:focus-visible {
+  outline: none;
+}
+
+/* Animation for status icons */
+.status-icon {
+  animation: statusFadeIn 0.2s ease;
+}
+
+@keyframes statusFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pattern placeholder styling */
+.pattern-input-field[placeholder] {
+  text-overflow: ellipsis;
+}
+
+/* Monospace font for formatted input */
+:host(.pattern-input-focused) .pattern-input-field {
+  font-family: 'Courier New', monospace;
+}

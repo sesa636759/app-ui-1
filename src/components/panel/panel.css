@@ -1,0 +1,117 @@
+/* Panel Container */
+.panel-container {
+  position: relative;
+  background-color: var(--panel-bg, #ffffff);
+  border: var(--panel-border, 1px solid #e5e7eb);
+  border-radius: var(--panel-border-radius, 8px);
+  box-shadow: var(--panel-shadow, 0 4px 6px rgba(0, 0, 0, 0.1));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Panel Header */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--panel-header-padding, 16px 20px);
+  border-bottom: var(--panel-header-border, 1px solid #e5e7eb);
+  background-color: var(--panel-header-bg, #f9fafb);
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--panel-title-color, #1f2937);
+}
+
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--panel-action-color, #6b7280);
+  font-size: 18px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.panel-action-btn:hover {
+  background-color: var(--panel-action-hover-bg, #e5e7eb);
+  color: var(--panel-action-hover-color, #374151);
+}
+
+.panel-action-btn:focus {
+  box-shadow: 0 0 0 2px var(--focus-color, rgba(59, 130, 246, 0.5));
+}
+
+/* Panel Content */
+.panel-content {
+  flex: 1;
+  padding: var(--panel-content-padding, 20px);
+  overflow-y: auto;
+  background-color: var(--panel-content-bg, #ffffff);
+}
+
+/* Panel Footer */
+.panel-footer {
+  padding: var(--panel-footer-padding, 12px 20px);
+  border-top: var(--panel-footer-border, 1px solid #e5e7eb);
+  background-color: var(--panel-footer-bg, #f9fafb);
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  .panel-container {
+    --panel-bg: #1f2937;
+    --panel-border: 1px solid #374151;
+    --panel-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .panel-header {
+    --panel-header-bg: #111827;
+    --panel-header-border: 1px solid #374151;
+  }
+
+  .panel-title {
+    --panel-title-color: #f9fafb;
+  }
+
+  .panel-content {
+    --panel-content-bg: #1f2937;
+  }
+
+  .panel-footer {
+    --panel-footer-bg: #111827;
+    --panel-footer-border: 1px solid #374151;
+  }
+
+  .panel-action-btn {
+    --panel-action-color: #9ca3af;
+    --panel-action-hover-bg: #374151;
+    --panel-action-hover-color: #f9fafb;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .panel-header,
+  .panel-content,
+  .panel-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
